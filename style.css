@@ -14,6 +14,7 @@
     --primary-color:white;
     --secondary-color:#060b1a;
     --primary-shadow: #060b1a;
+    --text: #0c132b;
     /* --secondary-shadow:rgb(115, 115, 222); */
 }
 
@@ -93,7 +94,7 @@ li a:hover::after{
 section{
     padding: 80px 10%;
 }
-h2{
+h1,h2{
     text-align: center;
 }
 .head{
@@ -151,21 +152,19 @@ h2{
     /* box-shadow:0 0 10px var(--primary-shadow); */
     align-items: center;
     transition-property:all;
-    
     transition-duration: 0.3s;
-    transition: transform 0.5s;
+    transition: all 0.5s;
 }
 .social-icons a:hover{
     background-color: var(--primary-shadow);
-    color: black;
+    color: var(--primary-color);
     width: 40px;
     flex-wrap: wrap;
     /* height: 40px; */
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     /* border-radius: 50%; */
     box-shadow:0 0 15px var(--primary-shadow);
-    transform: matrix3d(4px);
-    /* transform: translate(5px); */
+    transform: scale(1.2);
 }
 button{
     background-color:var(--primary-shadow);
@@ -182,7 +181,8 @@ button{
     align-items: center;
 }
 button:hover{
-    box-shadow:0 0 10px var(--primary-shadow)
+    box-shadow:0 0 10px var(--primary-shadow);
+    transform: scale(1.05);
 }
 button a{
     color: var(--primary-color);
@@ -202,43 +202,12 @@ button a{
 
 /* ----------------------------About--------------------- */
 
-h6{
+h5{
     margin-top: -5px;
     text-align: center;
     font-weight: lighter;
     color: var(--muted);
-}/*
-h4{
-    display: inline;
-    overflow: hidden ;
-    white-space:nowrap;
-    animation: typing 10s 1s infinite forwards ;
-    border-right: 2px solid var(--primary-shadow);
 }
-.flex{
-  
-    gap: 5px;
-  
-    display:flex;
-    flex-direction: row;
-    justify-content:space-evenly;
-    flex-wrap: wrap;
-}
-.card{
-    flex-basis: 25%;
-   
-    background-color: var(--primary-shadow);
-    border-radius: 15px;
-}
-.card img{
-    width: 100%;
-    height: auto;
-    border-radius: 15px;
-}
-.col{
-    flex-basis: 60%;
-}
-*/
 .hero{
     width: 100%;
     min-height: 90vh;
@@ -269,7 +238,119 @@ h4{
 }
 .right p{
     opacity: .8;
-    /* font-size: 16px; */
     line-height: 1.1;
     color: var(--muted);
+}
+/* about cards */
+.cards{
+    display: grid;
+    gap:5px;
+    flex-wrap: wrap;
+}
+.card{
+    opacity: 0.9;
+    padding: 12px 15px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--card);
+    border-radius: 12px;
+    transition: all 0.3s;
+}
+.card:hover{
+    box-shadow:0 0 10px var(--primary-shadow);
+    transform: scale(1.02);
+}
+@media(max-width:768px){
+    .hero{
+        flex-direction: column;
+        padding: 20px 0;
+    }
+    .left,.right{
+        flex-basis: 100%;
+    }
+    .left img{
+        width: 70%;
+        margin: 0 auto;
+    }
+    .right h1{
+        font-size: 28px;
+    }
+}
+/* -------------------------------------Skills----------------------------------- */
+#skills .cards{
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    flex-wrap: nowrap;
+    gap: 20px;
+    padding: 30px;
+}
+.card .avatar{
+    width: 60px;
+    height: 60px;
+    border-radius: 20%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+.card .avatar svg{
+    align-self: center;
+    width: 40px;
+    height: 40px;
+    color: var(--secondary-color);
+}
+.card h4{
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+.card ul{
+    list-style: none;
+    padding-left: 20px;
+    color: var(--muted);
+    padding: 0;
+}
+.card ul li{
+    margin: 12px 0;
+    /* opacity: 0.8; */
+    display: flex;
+    gap: 7px;
+    transition: all 0.3s;
+}
+.card ul li::before{
+    content:'✔';
+    font-size: 13px;
+    padding: 1px;
+    opacity: 0.8;
+    color: var(--primary-shadow);
+}
+#skills .cards .card ul li:hover{
+    opacity: 1;
+    font-weight: bold;
+    /* background-color: rgba(255,255,255,0.08); */
+    /* background-color: rgb(65, 64, 64); */
+    border-radius:10px;
+}
+@media(max-width:768px){
+    #skills .cards{
+        /* justify-content: center; */
+        flex-wrap: wrap;
+    }
+}
+h4{
+    color: var(--secondary-color);
+    text-align: center;
+}
+#skills .cards .card{
+    width: 250px;
+    height:300px;
+    padding: 25px;
+    border-radius: 22px;
+    box-shadow:
+    0 0 30px rgba(0,0,0,.3),
+    inset 0 0 10px rgba(255,255,255,.03);
+    transition-property: all;
+    transition-duration: 0.4s;
+}
+#skills .cards .card:hover{
+    box-shadow:0 0 15px var(--primary-shadow);
+    transform: scale(1.05);
 }
